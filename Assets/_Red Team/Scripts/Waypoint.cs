@@ -104,7 +104,8 @@ namespace RedTeam {
 				Gizmos.color = new Color(0, 1, 0, 1f);
 
 				foreach(IWaypoint waypoint in nextWaypoints) {
-					Gizmos.DrawLine(transform.position, waypoint.Position);
+					if(waypoint != null)
+						Gizmos.DrawLine(transform.position, waypoint.Position);
 				}
 			}
 		}
