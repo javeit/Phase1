@@ -6,7 +6,7 @@ namespace RedTeam {
 
 	public class AICarGuide : MonoBehaviour {
 
-		public Waypoint startWaypoint;
+		public WaypointManager waypointManager;
 		public float speed;
 		public GameObject car;
 		public float followDistance;
@@ -25,20 +25,16 @@ namespace RedTeam {
 					if(waypoint.GetNext() != null)
 						waypoint = waypoint.GetNext();
 				
-				} else if(remainingDistance.magnitude <= speed) {
-				
-					transform.Translate(remainingDistance);
-
 				} else {
 				
-					transform.Translate(remainingDistance.normalized * speed);
+					transform.Translate(remainingDistance.normalized * speed * Time.deltaTime);
 
 				}
 			}
 		}
 
 		void Awake() {
-			waypoint = startWaypoint;
+			waypoint = waypointManager.GetWaypointNear (transform.position);
 		}
 	}
 }
