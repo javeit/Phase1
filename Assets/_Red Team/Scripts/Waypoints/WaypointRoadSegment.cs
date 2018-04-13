@@ -19,16 +19,16 @@ namespace RedTeam {
 		/// The waypoints
 		/// 
 		/// for NS roads
-		/// 	0 - NorthBound entry
-		/// 	1 - NorthBound exit
-		/// 	2 - SouthBound entry
-		/// 	3 - SouthBound exit
+		/// 	0 - NorthBound entry,
+		/// 	1 - NorthBound exit,
+		/// 	2 - SouthBound entry,
+		/// 	3 - SouthBound exit,
 		/// 
 		/// for WE roads
-		/// 	0 - WestBound entry
-		/// 	1 - WestBound exit
-		/// 	2 - EastBound entry
-		/// 	3 - EastBound exit
+		/// 	0 - WestBound entry,
+		/// 	1 - WestBound exit,
+		/// 	2 - EastBound entry,
+		/// 	3 - EastBound exit,
 		/// 
 		/// </summary>
 		public Waypoint[] waypoints;

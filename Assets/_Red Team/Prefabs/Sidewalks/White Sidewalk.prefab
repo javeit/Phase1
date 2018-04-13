@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65841426076470144}
   - component: {fileID: 23674603948716908}
   m_Layer: 8
-  m_Name: Sidewalk (5)
+  m_Name: White Sidewalk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
