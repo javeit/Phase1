@@ -78,7 +78,7 @@ namespace RedTeam {
 			northBoundRoad.waypoints[1].nextWaypointProbabilities = new List<float>(new float[] { 1f });
 
 			waypoints[0].nextWaypoints = new List<Waypoint>(new Waypoint[] { waypoints[1], westBoundRoad.waypoints[2] });
-			waypoints[0].nextWaypointProbabilities = new List<float>(new float[] { 0.75f, 0.25f });
+			waypoints[0].nextWaypointProbabilities = new List<float>(new float[] { 0.70f, 0.30f });
 
 			waypoints[1].nextWaypoints = new List<Waypoint>(new Waypoint[] { southBoundRoad.waypoints[0], eastBoundRoad.waypoints[0] });
 			waypoints[1].nextWaypointProbabilities = new List<float>(new float[] { 0.66f, 0.34f });
@@ -88,7 +88,7 @@ namespace RedTeam {
 			eastBoundRoad.waypoints[3].nextWaypointProbabilities = new List<float>(new float[] { 1f });
 
 			waypoints[2].nextWaypoints = new List<Waypoint>(new Waypoint[] { waypoints[3], northBoundRoad.waypoints[2] });
-			waypoints[2].nextWaypointProbabilities = new List<float>(new float[] { 0.75f, 0.25f });
+			waypoints[2].nextWaypointProbabilities = new List<float>(new float[] { 0.70f, 0.30f });
 
 			waypoints[3].nextWaypoints = new List<Waypoint>(new Waypoint[] { westBoundRoad.waypoints[2], southBoundRoad.waypoints[0] });
 			waypoints[3].nextWaypointProbabilities = new List<float>(new float[] { 0.66f, 0.34f });
@@ -98,7 +98,7 @@ namespace RedTeam {
 			southBoundRoad.waypoints[3].nextWaypointProbabilities = new List<float>(new float[] { 1f });
 
 			waypoints[4].nextWaypoints = new List<Waypoint>(new Waypoint[] { waypoints[5], eastBoundRoad.waypoints[0] });
-			waypoints[4].nextWaypointProbabilities = new List<float>(new float[] { 0.75f, 0.25f });
+			waypoints[4].nextWaypointProbabilities = new List<float>(new float[] { 0.70f, 0.30f });
 
 			waypoints[5].nextWaypoints = new List<Waypoint>(new Waypoint[] { northBoundRoad.waypoints[2], westBoundRoad.waypoints[2] });
 			waypoints[5].nextWaypointProbabilities = new List<float>(new float[] { 0.66f, 0.34f });
@@ -108,7 +108,7 @@ namespace RedTeam {
 			westBoundRoad.waypoints[1].nextWaypointProbabilities = new List<float>(new float[] { 1f });
 
 			waypoints[6].nextWaypoints = new List<Waypoint>(new Waypoint[] { waypoints[7], southBoundRoad.waypoints[0] });
-			waypoints[6].nextWaypointProbabilities = new List<float>(new float[] { 0.75f, 0.25f });
+			waypoints[6].nextWaypointProbabilities = new List<float>(new float[] { 0.70f, 0.30f });
 
 			waypoints[7].nextWaypoints = new List<Waypoint>(new Waypoint[] { eastBoundRoad.waypoints[0], northBoundRoad.waypoints[2] });
 			waypoints[7].nextWaypointProbabilities = new List<float>(new float[] { 0.66f, 0.34f });
