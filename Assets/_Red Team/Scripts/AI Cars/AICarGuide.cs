@@ -6,10 +6,11 @@ namespace RedTeam {
 
 	public class AICarGuide : MonoBehaviour {
 
-		public WaypointManager waypointManager;
 		public float speed;
 		public GameObject car;
 		public float followDistance;
+
+		public Waypoint startWaypoint;
 
 		IWaypoint waypoint;
 
@@ -34,7 +35,7 @@ namespace RedTeam {
 		}
 
 		void Awake() {
-			waypoint = waypointManager.GetWaypointNear (transform.position);
+			waypoint = startWaypoint as IWaypoint;
 		}
 	}
 }
