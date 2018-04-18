@@ -12,15 +12,7 @@ namespace RedTeam {
 
 		public WaypointGrid grid;
 
-		public List<Waypoint> startWaypoints;
-		List<Waypoint> StartWaypoints {
-			get {
-				if(startWaypoints == null || startWaypoints.Count == 0)
-					GetStartWaypoints();
-
-				return startWaypoints;
-			}
-		}
+		List<Waypoint> startWaypoints;
 
 		void GetStartWaypoints() {
 			if(grid.northSouthRoadSegments == null || grid.northSouthRoadSegments.Length == 0 
@@ -42,13 +34,15 @@ namespace RedTeam {
 
 		public void SpawnCars() {
 
+			GetStartWaypoints();
+
 			if(numCars <= 0)
 				return;
 
 			for(int i = 0; i < numCars; i++) {
 				GameObject car = GameObject.Instantiate(carPrefab, carParentObject);
 
-				Waypoint waypoint = StartWaypoints[Random.Range(0, StartWaypoints.Count - 1)];
+				Waypoint waypoint = startWaypoints[Random.Range(0, startWaypoints.Count - 1)];
 
 				car.transform.position = waypoint.transform.parent.position;
 				car.GetComponentInChildren<AICarGuide>().startWaypoint = waypoint;
