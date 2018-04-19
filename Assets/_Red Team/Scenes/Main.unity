@@ -11925,6 +11925,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 456676819}
   m_Mesh: {fileID: 4300000, guid: fe96651be7d34ed4584e141673fcb71b, type: 3}
+--- !u!1001 &457051084
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4160583152941638, guid: b24d33c582592cb45ae6e59701735cb4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 10.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160583152941638, guid: b24d33c582592cb45ae6e59701735cb4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 15.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160583152941638, guid: b24d33c582592cb45ae6e59701735cb4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -37.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160583152941638, guid: b24d33c582592cb45ae6e59701735cb4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160583152941638, guid: b24d33c582592cb45ae6e59701735cb4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160583152941638, guid: b24d33c582592cb45ae6e59701735cb4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160583152941638, guid: b24d33c582592cb45ae6e59701735cb4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160583152941638, guid: b24d33c582592cb45ae6e59701735cb4, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b24d33c582592cb45ae6e59701735cb4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &460210135
 GameObject:
   m_ObjectHideFlags: 0
@@ -39489,6 +39531,10 @@ Prefab:
       propertyPath: modelAliasRightController
       value: 
       objectReference: {fileID: 545067879}
+    - target: {fileID: 1074594160108022, guid: 8d57f293b1d954043aa3e3fc9d307b70, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d57f293b1d954043aa3e3fc9d307b70, type: 2}
   m_IsPrefabParent: 0
