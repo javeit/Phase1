@@ -6,51 +6,63 @@ public class LightControl : MonoBehaviour {
     public Light redLight;
     public Light yellowLight;
     public Light greenLight;
+    public static bool redStop = false ;
 
-
-	// Use this for initialization
-	void Start () {
-
-    }
+    //Trafic Light Control For WE
 	
     void Awake() 
 	{
         StartCoroutine(LightLoop());
+        redStop = getRedStatus();
     }
 
-    IEnumerator LightLoop()
+    public IEnumerator LightLoop()
     {
        
         while (true)
         {
-            Debug.Log("Red light On");
+            //Debug.Log("Red light On");
             //code for the red light = On
             //yellow and green = off
             redLight.enabled = true;
             yellowLight.enabled = false;
             greenLight.enabled = false;
+            redStop = true;
+            getRedStatus();
+            
             yield return new WaitForSeconds(10); //red will be on for 10 sec
 
-            Debug.Log("Yellow light On");
+            //Debug.Log("Yellow light On");
 
             //code for the Yellow light = On
             //red and green = off
             redLight.enabled = false;
             yellowLight.enabled = true;
             greenLight.enabled = false;
-
+            redStop = false;
+            getRedStatus();
 
             yield return new WaitForSeconds(2); //yellow will be on for 2 sec
 
-            Debug.Log("Green light On");
+            //Debug.Log("Green light On");
 
             //code for the Green light = On
             //yellow and red = off
             redLight.enabled = false;
             yellowLight.enabled = false;
             greenLight.enabled = true;
+            redStop = false;
+            getRedStatus();
 
             yield return new WaitForSeconds(10); //green will be on for 10 sec
         }
-    }
+   }
+
+       
+        //function that returns true when redlight
+        public bool getRedStatus()
+        {
+            
+            return redStop;
+        }
 }

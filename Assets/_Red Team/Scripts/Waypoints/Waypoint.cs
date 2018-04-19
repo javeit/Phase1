@@ -4,73 +4,77 @@ using UnityEngine;
 using System;
 
 namespace RedTeam {
-	
+
 	public interface IWaypoint {
 		IWaypoint GetNext();
 		Vector3 Position { get; }
 		float ArrivedDistance { get; }
 	}
 
-	public class Waypoint : MonoBehaviour, IWaypoint {
 
-		/// <summary>
-		/// A list of the next waypoints
-		/// </summary>
-		public List<Waypoint> nextWaypoints;
+    public class Waypoint : MonoBehaviour, IWaypoint {
 
-		/// <summary>
-		/// A list of the probability of the corresponding
-		/// waypoints in nextWaypoints to be chosen from
-		/// 0 to 1
-		/// </summary>
-		public List<float> nextWaypointProbabilities;
+        /// <summary>
+        /// A list of the next waypoints
+        /// </summary>
+        public List<Waypoint> nextWaypoints;
 
-		public float arrivedDistance;
+        /// <summary>
+        /// A list of the probability of the corresponding
+        /// waypoints in nextWaypoints to be chosen from
+        /// 0 to 1
+        /// </summary>
+        public List<float> nextWaypointProbabilities;
 
-		public float ArrivedDistance {
-			get {
-				return arrivedDistance;
-			}
-		}
+        public float arrivedDistance;
 
-		public Vector3 Position {
-			get {
-				return transform.position;
-			}
-		}
+        public float ArrivedDistance {
+            get {
+                return arrivedDistance;
+            }
+        }
 
-		void OnValidate() {
+        public Vector3 Position {
+            get {
+                return transform.position;
+            }
+        }
 
-			if(nextWaypoints != null) {
-				if(nextWaypointProbabilities == null)
-					nextWaypointProbabilities = new List<float>();
+        void OnValidate() {
 
-				while(nextWaypointProbabilities.Count != nextWaypoints.Count) {
-					if(nextWaypointProbabilities.Count > nextWaypoints.Count)
-						nextWaypointProbabilities.RemoveAt(nextWaypointProbabilities.Count - 1);
-					else
-						nextWaypointProbabilities.Add(0f);
-				}
+            if (nextWaypoints != null) {
+                if (nextWaypointProbabilities == null)
+                    nextWaypointProbabilities = new List<float>();
 
-				for(int i = 0; i < nextWaypointProbabilities.Count; i++) {
-					if(nextWaypointProbabilities[i] < 0f)
-						nextWaypointProbabilities[i] = 0f;
+                while (nextWaypointProbabilities.Count != nextWaypoints.Count) {
+                    if (nextWaypointProbabilities.Count > nextWaypoints.Count)
+                        nextWaypointProbabilities.RemoveAt(nextWaypointProbabilities.Count - 1);
+                    else
+                        nextWaypointProbabilities.Add(0f);
+                }
 
-					if(nextWaypointProbabilities[i] > 1f)
-						nextWaypointProbabilities[i] = 1f;
-				}
-			}
-		}
+                for (int i = 0; i < nextWaypointProbabilities.Count; i++) {
+                    if (nextWaypointProbabilities[i] < 0f)
+                        nextWaypointProbabilities[i] = 0f;
 
-		/// <summary>
-		/// Gets the next waypoint the car should travel to.
-		/// Returns null if there are no next waypoints
-		/// </summary>
-		/// <returns>The next waypoint</returns>
-		public IWaypoint GetNext() {
-			if(nextWaypoints == null || nextWaypoints.Count == 0)
-				return null;
+                    if (nextWaypointProbabilities[i] > 1f)
+                        nextWaypointProbabilities[i] = 1f;
+                }
+            }
+        }
 
+        /// <summary>
+        /// Gets the next waypoint the car should travel to.
+        /// Returns null if there are no next waypoints
+        /// </summary>
+        /// <returns>The next waypoint</returns>
+        public IWaypoint GetNext() {
+            if (nextWaypoints == null || nextWaypoints.Count == 0)
+            {
+                
+                return null;
+
+            }
 			float rand = UnityEngine.Random.Range(0f, 1f);
 
 			// this number represents the chance that the waypoint

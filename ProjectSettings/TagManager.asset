@@ -7,6 +7,8 @@ TagManager:
   - FxTemporaire
   - projectile
   - TeleportIgnore
+  - TrafficNS
+  - TrafficWE
   layers:
   - Default
   - TransparentFX
