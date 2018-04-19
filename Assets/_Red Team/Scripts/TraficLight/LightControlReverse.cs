@@ -41,7 +41,7 @@ public class LightControlReverse : MonoBehaviour {
             redLight.enabled = false;
             yellowLight.enabled = true;
             greenLight.enabled = false;
-            redStop = false;
+            redStop = true;
             getRedStatus();
 
             yield return new WaitForSeconds(2); //yellow will be on for 1 sec
@@ -58,6 +58,8 @@ public class LightControlReverse : MonoBehaviour {
             getRedStatus();
 
             yield return new WaitForSeconds(10); //red will be on for 10 sec
+            yield return new WaitForSeconds(2); //wait for opposite traffic to turn red from yellow
+
         }
     }
          //function that returns true when redlight

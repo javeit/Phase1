@@ -32,17 +32,8 @@ public class LightControl : MonoBehaviour {
             
             yield return new WaitForSeconds(10); //red will be on for 10 sec
 
-            //Debug.Log("Yellow light On");
+            yield return new WaitForSeconds(2); //wait for opposite traffic to turn red from yellow
 
-            //code for the Yellow light = On
-            //red and green = off
-            redLight.enabled = false;
-            yellowLight.enabled = true;
-            greenLight.enabled = false;
-            redStop = false;
-            getRedStatus();
-
-            yield return new WaitForSeconds(2); //yellow will be on for 2 sec
 
             //Debug.Log("Green light On");
 
@@ -55,6 +46,18 @@ public class LightControl : MonoBehaviour {
             getRedStatus();
 
             yield return new WaitForSeconds(10); //green will be on for 10 sec
+
+            //Debug.Log("Yellow light On");
+
+            //code for the Yellow light = On
+            //red and green = off
+            redLight.enabled = false;
+            yellowLight.enabled = true;
+            greenLight.enabled = false;
+            redStop = true;
+            getRedStatus();
+
+            yield return new WaitForSeconds(2); //yellow will be on for 2 sec
         }
    }
 
