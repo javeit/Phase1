@@ -1,32 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace RedTeam {
 
 	public class CarSpawner : MonoBehaviour {
 
 		public Transform carParentObject;
-		public GameObject carPrefab;
+		public GameObject[] carPrefabs;
 		public int numCars;
 
-		public WaypointGrid grid;
+		public GameObject grid;
+
+		public float minSpeed;
+		public float maxSpeed;
 
 		List<Waypoint> startWaypoints;
 
 		void GetStartWaypoints() {
-			if(grid.northSouthRoadSegments == null || grid.northSouthRoadSegments.Length == 0 
-				|| grid.westEastRoadSegments == null || grid.westEastRoadSegments.Length == 0)
+
+			WaypointRoadSegment[] segments = grid.GetComponentsInChildren<WaypointRoadSegment>();
+
+			if(segments == null || segments.Length == 0)
 				return;
 
 			startWaypoints = new List<Waypoint>();
 
-			foreach(WaypointRoadSegment roadSegment in grid.northSouthRoadSegments) {
-				startWaypoints.Add(roadSegment.waypoints[1]);
-				startWaypoints.Add(roadSegment.waypoints[3]);
-			}
-
-			foreach(WaypointRoadSegment roadSegment in grid.westEastRoadSegments) {
+			foreach(WaypointRoadSegment roadSegment in segments) {
 				startWaypoints.Add(roadSegment.waypoints[1]);
 				startWaypoints.Add(roadSegment.waypoints[3]);
 			}
@@ -40,7 +41,11 @@ namespace RedTeam {
 				return;
 
 			for(int i = 0; i < numCars; i++) {
+
+				GameObject carPrefab = carPrefabs[Random.Range(0, carPrefabs.Length - 1)];
 				GameObject car = GameObject.Instantiate(carPrefab, carParentObject);
+
+				car.GetComponentInChildren<NavMeshAgent>().speed = Random.Range(minSpeed, maxSpeed);
 
 				Waypoint waypoint = startWaypoints[Random.Range(0, startWaypoints.Count - 1)];
 

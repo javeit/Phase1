@@ -25,6 +25,8 @@ namespace RedTeam {
 		/// </summary>
 		public Vector2Int gridSize;
 
+		public bool createBlocks;
+
         Transform roadParent;
         Transform RoadParent {
             get {
@@ -97,7 +99,8 @@ namespace RedTeam {
 
 			LinkIntersections();
 
-			CreateAndPositionBlocks();
+			if(createBlocks)
+				CreateAndPositionBlocks();
 		}
 
 		/// <summary>
